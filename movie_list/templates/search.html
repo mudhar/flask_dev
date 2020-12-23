@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+{% block search_ids%}
+<form class="d-flex" action="{{url_for('search_by_title')}}" method="post">
+    <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="title">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+{% endblock %}
+
+{% block search_result %}
+{% if search_id %}
+<div class="col-sm-3 mb-3">
+    <img src="{{search_id.Poster}}" class="img-thumbnail" alt="...">
+</div>
+<div class="col-lg mb-3">
+    <div class="card">
+
+        <div class="card-body">
+            <h5 class="card-title">{{search_id.Title}}</h5>
+            <p class="card-text"> Year: {{search_id.Year}}</p>
+            <p class="card-text">Storyline: {{search_id.Plot}}</p>
+            <p class="card-text"> Runtime: {{search_id.Runtime}}</p>
+            <p class="card-text"> Released: {{search_id.Released}}</p>
+            <p class="card-text">Actors: {{search_id.Actors}}</p>
+            <p class="card-text"> Language: {{search_id.Language}}</p>
+            <p class="card-text"> Country: {{search_id.Country}}</p>
+            <p class="card-text">Rating: {{search_id.imdbRating}}</p>
+            <p class="card-text">Awards: {{search_id.Awards}}</p>
+
+
+        </div>
+    </div>
+</div>
+{% else %}
+<h1>Data Not Found</h1>
+{% endif %}
+{% endblock %}

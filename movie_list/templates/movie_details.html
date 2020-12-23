@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+{% block movie_detail_ids %}
+<div class="col-sm-3 mb-3">
+    <img src="{{movie_id.Poster}}" class="img-thumbnail" alt="...">
+</div>
+<div class="col-lg mb-3">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{movie_id.Title}}</h5>
+            <p class="card-text">Year: {{movie_id.Year}}</p>
+            <p class="card-text">Storyline: {{movie_id.Plot}}</p>
+            <p class="card-text"> Runtime: {{movie_id.Runtime}}</p>
+            <p class="card-text"> Released: {{movie_id.Released}}</p>
+            <p class="card-text">Actors: {{movie_id.Actors}}</p>
+            <p class="card-text"> Language: {{movie_id.Language}}</p>
+            <p class="card-text"> Country: {{movie_id.Country}}</p>
+            <p class="card-text">Rating: {{movie_id.imdbRating}}</p>
+            <p class="card-text">Awards: {{movie_id.Awards}}</p>
+            <a class="btn btn-primary" href="{{url_for('add_to_favorite', title=movie_id.Title)}}">Add to Favorite</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

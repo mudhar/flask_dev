@@ -1,17 +1,17 @@
 {% extends "index.html" %}
 
-{% block movies %}
+{% block movie_ids %}
 <!-- content list movie from omdapi-->
-{% for movie in movies.Search %}
+{% for movie in movie_ids.Search %}
 <div class="col-sm mb-3">
     <div class="card" style="width: 18rem;">
         <img src="{{movie.Poster}}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{movie.Title}}</h5>
             <p class="card-text">{{movie.Year}}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="{{url_for('get_movie_details',title=movie.Title)}}" class="btn btn-primary">Read More</a>
         </div>
     </div>
 </div>
 {% endfor %}
-{% endblock movies%}
+{% endblock%}
